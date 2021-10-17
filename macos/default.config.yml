@@ -129,6 +129,7 @@ homebrew_cask_apps:
   - google-web-designer
   - google-japanese-ime
   - google-earth-pro
+  - qgis
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
