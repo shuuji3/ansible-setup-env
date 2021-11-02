@@ -126,7 +126,7 @@ homebrew_cask_apps:
   - burp-suite
   - iina
   - utm
-  - rpi-imager
+  - raspberry-pi-imager
   - google-web-designer
   - google-japanese-ime
   - google-earth-pro
