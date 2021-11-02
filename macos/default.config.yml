@@ -131,6 +131,7 @@ homebrew_cask_apps:
   - google-japanese-ime
   - google-earth-pro
   - qgis
+  - blackhole-2ch
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
