@@ -134,8 +134,12 @@ homebrew_cask_apps:
   - blackhole-2ch
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_installed_apps: []
-mas_email: ""
+mas_installed_apps:
+  - { "id": 497799835, "name": "Xcode (13.1)" }
+  - { "id": 1423210932, "name": "Flow (2.7.5)" }
+  - { "id": 1452453066, "name": "Hidden Bar (1.8)" }
+  - { "id": 1475387142, "name": "Tailscale (1.16.1)" }
+mas_email: "shuuji3@gmail.com"
 mas_password: ""
 
 osx_script: "~/.osx --no-restart"
