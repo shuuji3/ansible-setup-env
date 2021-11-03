@@ -108,7 +108,7 @@ homebrew_cask_apps:
   - slack
   #  - transmit
   - vagrant
-  - osxfuse
+  - macfuse
   - discord
   - microsoft-teams
   - zoom
