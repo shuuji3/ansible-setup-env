@@ -89,6 +89,9 @@ homebrew_installed_packages:
   - colordiff
   - ghostunnel
   - cfssl
+  - yq
+  - inkscape
+  - zotero
 
 homebrew_taps:
   - homebrew/core
