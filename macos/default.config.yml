@@ -102,15 +102,11 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
   - docker
-  #  - dropbox
   - firefox
   - google-chrome
   - google-chrome-canary
   - handbrake
-  #  - licecap
-  #  - sequel-pro
   - slack
-  #  - transmit
   - vagrant
   - macfuse
   - discord
