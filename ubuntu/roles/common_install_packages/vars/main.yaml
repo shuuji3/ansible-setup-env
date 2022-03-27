@@ -41,20 +41,15 @@ snap_packages:
     channel: beta
   - name: emacs
     classic: yes
-  - name: hub
-    classic: yes
-  - name: teams-for-linux
   - name: node
     channel: 13/stable
     classic: yes
   - name: google-cloud-sdk
     classic: yes
   - name: gimp
-  - name: zoom-client
   - name: obs-studio
   - name: youtube-dl
   - name: vlc
-  - name: discord
   - name: audacity
   - name: inkscape
   - name: autossh
