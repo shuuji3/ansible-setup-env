@@ -9,4 +9,3 @@
     groups:
       - lxd
       - docker
-      - microk8s
