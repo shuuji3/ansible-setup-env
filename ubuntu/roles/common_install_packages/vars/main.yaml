@@ -42,7 +42,7 @@ snap_packages:
   - name: emacs
     classic: yes
   - name: node
-    channel: 13/stable
+    channel: 16/stable
     classic: yes
   - name: google-cloud-sdk
     classic: yes
