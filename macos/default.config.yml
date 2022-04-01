@@ -91,6 +91,7 @@ homebrew_installed_packages:
   - yq
   - inkscape
   - zotero
+  - commitizen
 
 homebrew_taps:
   - homebrew/core
