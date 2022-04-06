@@ -92,6 +92,7 @@ homebrew_installed_packages:
   - inkscape
   - zotero
   - commitizen
+  - arduino
 
 homebrew_taps:
   - homebrew/core
