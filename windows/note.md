@@ -10,5 +10,5 @@ Then, install other software packages:
 
 ```shell
 choco feature enable -n allowGlobalConfirmation
-choco install virtualbox googlejapaneseinput wsl2 scansnapmanager googledrive googlechrome barrier vscode
+choco install virtualbox googlejapaneseinput wsl2 scansnapmanager googledrive googlechrome googlechrome.canary barrier vscode
 ```
