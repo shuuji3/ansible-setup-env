@@ -136,7 +136,7 @@ homebrew_cask_apps:
   - blackhole-2ch
   - signal
   - telegram
-  - elements
+  - element
   - cue-lang/tap/cue
 
 # See `geerlingguy.mas` role documentation for usage instructions.
