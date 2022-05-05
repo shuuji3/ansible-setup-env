@@ -85,7 +85,6 @@ homebrew_installed_packages:
   - alexellis/homebrew-alexellis/arkade
   - atlantis
   - act
-  - colordiff
   - ghostunnel
   - cfssl
   - yq
