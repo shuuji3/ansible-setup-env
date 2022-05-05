@@ -97,6 +97,7 @@ homebrew_installed_packages:
   - bat
   - zoxide
   - ripgrep
+  - asdf
 
 homebrew_taps:
   - homebrew/core
