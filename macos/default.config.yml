@@ -93,6 +93,10 @@ homebrew_installed_packages:
   - zotero
   - commitizen
   - arduino
+  - git-delta
+  - bat
+  - zoxide
+  - ripgrep
 
 homebrew_taps:
   - homebrew/core
