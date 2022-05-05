@@ -93,11 +93,11 @@ homebrew_installed_packages:
   - commitizen
   - arduino
   - git-delta
-  - bat
   - zoxide
   - ripgrep
   - asdf
   - heroku/brew/heroku
+  - bat-extras
 
 homebrew_taps:
   - homebrew/core
