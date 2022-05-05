@@ -95,9 +95,10 @@ homebrew_installed_packages:
   - git-delta
   - zoxide
   - ripgrep
+  - bat-extras
+  - exa
   - asdf
   - heroku/brew/heroku
-  - bat-extras
   - k9s
 
 homebrew_taps:
