@@ -98,6 +98,7 @@ homebrew_installed_packages:
   - zoxide
   - ripgrep
   - asdf
+  - heroku/brew/heroku
 
 homebrew_taps:
   - homebrew/core
