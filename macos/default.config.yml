@@ -98,6 +98,7 @@ homebrew_installed_packages:
   - asdf
   - heroku/brew/heroku
   - bat-extras
+  - k9s
 
 homebrew_taps:
   - homebrew/core
