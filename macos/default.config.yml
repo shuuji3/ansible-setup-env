@@ -74,6 +74,9 @@ homebrew_installed_packages:
   - ffmpeg
   - fzf
   - argocd
+  - argocd-autopilot
+  - argocd-vault-plugin
+  - vault
   - k3d
   - ngrok
   - alexellis/homebrew-alexellis/arkade
