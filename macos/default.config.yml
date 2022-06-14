@@ -92,6 +92,7 @@ homebrew_installed_packages:
   - asdf
   - heroku/brew/heroku
   - k9s
+  - hashicorp/tap/packer
 
 homebrew_taps:
   - homebrew/core
