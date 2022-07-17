@@ -93,6 +93,7 @@ homebrew_installed_packages:
   - heroku/brew/heroku
   - k9s
   - hashicorp/tap/packer
+  - pipx
 
 homebrew_taps:
   - homebrew/core
