@@ -97,6 +97,7 @@ homebrew_installed_packages:
   - colima
   - dive
   - zx
+  - pre-commit
   - docker
   - docker-compose
 
