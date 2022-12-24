@@ -97,6 +97,8 @@ homebrew_installed_packages:
   - colima
   - dive
   - zx
+  - docker
+  - docker-compose
 
 homebrew_taps:
   - homebrew/core
@@ -107,7 +109,6 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
-  - docker
   - firefox
   - google-chrome
   - google-chrome-canary
