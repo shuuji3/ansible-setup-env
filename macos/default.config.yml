@@ -94,6 +94,8 @@ homebrew_installed_packages:
   - k9s
   - hashicorp/tap/packer
   - pipx
+  - colima
+  - dive
 
 homebrew_taps:
   - homebrew/core
