@@ -96,6 +96,7 @@ homebrew_installed_packages:
   - pipx
   - colima
   - dive
+  - zx
 
 homebrew_taps:
   - homebrew/core
@@ -165,7 +166,6 @@ gem_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
 npm_packages:
-  - name: zx
   - name: node-red
 # - name: webpack
 #   state: present # present/absent/latest, default: present
