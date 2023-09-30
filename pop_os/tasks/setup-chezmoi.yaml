@@ -1,0 +1,10 @@
+---
+- name: Check if chezmoi is installed
+  command: "which ${HOME}/bin/chezmoi"
+  register: chezmoi_installed
+  failed_when: false
+- name: Install chezmoi
+  shell: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply shuuji3
+  args:
+    chdir: "$HOME"
+  when: chezmoi_installed.rc != 0

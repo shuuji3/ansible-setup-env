@@ -1,0 +1,6 @@
+---
+- name: Ensure configured apt packages are installed
+  apt:
+    name: "{{ item.name | default(item) }}"
+    update_cache: yes
+  loop: "{{ apt_packages }}"

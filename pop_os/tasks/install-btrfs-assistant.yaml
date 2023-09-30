@@ -1,0 +1,16 @@
+---
+- name: Add gpg key
+  apt_key:
+    url: http://download.opensuse.org/repositories/home:/iDesmI:/more/xUbuntu_22.04/Release.key
+- name: Prepare apt repository
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/home:/iDesmI:/more/xUbuntu_22.04/ /
+    filename: btrfs-assistant
+- name: Install btrfs-assistant
+  apt:
+    update_cache: yes
+    name: btrfs-assistant
+- name: Install snapper
+  apt:
+    update_cache: yes
+    name: snapper
