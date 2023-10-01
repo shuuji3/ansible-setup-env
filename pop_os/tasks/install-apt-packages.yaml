@@ -1,6 +1,9 @@
 ---
-- name: Ensure configured apt packages are installed
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+- name: Install apt packages
   apt:
     name: "{{ item.name | default(item) }}"
-    update_cache: yes
   loop: "{{ apt_packages }}"

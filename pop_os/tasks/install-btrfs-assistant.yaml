@@ -12,5 +12,4 @@
     name: btrfs-assistant
 - name: Install snapper
   apt:
-    update_cache: yes
     name: snapper
