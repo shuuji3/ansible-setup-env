@@ -18,3 +18,4 @@ apt_packages:
 - imagemagick
 - neofetch
 - ssh
+- gnome-boxes
