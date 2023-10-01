@@ -13,7 +13,6 @@ apt_packages:
 - tree
 - yt-dlp
 - emacs-gtk
-- virtualbox-qt
 - vagrant
 - tldr
 - imagemagick
