@@ -5,3 +5,15 @@ apt_packages:
 - snapper-gui
 - gh
 - fish
+- byobu
+- fzf
+- httpie
+- jq
+- htop
+- dstat
+- tree
+- yt-dlp
+- emacs-gtk
+- virtualbox-qt
+- vagrant
+- tldr
