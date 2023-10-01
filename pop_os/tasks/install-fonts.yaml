@@ -1,0 +1,28 @@
+---
+#- name: Install github3.py library for github_release
+#  pip:
+#    name: github3.py
+#- name: Fetch nerd-fonts GitHub release tag
+#  github_release:
+#    action: latest_release
+#    user: ryanoasis
+#    repo: nerd-fonts
+#  register: nerd_fonts
+#- name: Download nerd-fonts
+#  unarchive:
+#    remote_src: yes
+#    src: "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ nerd_fonts.tag }}/JetBrainsMono.tar.xz"
+#    dest: ~/.fonts
+- name: Create fonts directory
+  file:
+    path: ~/.fonts
+    state: directory
+- name: Download nerd-fonts
+  vars:
+    version: v3.0.2
+  unarchive:
+    remote_src: yes
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ version }}/JetBrainsMono.tar.xz"
+    dest: ~/.fonts
+- name: 'rebuild fonts cache'
+  shell: 'fc-cache -f'

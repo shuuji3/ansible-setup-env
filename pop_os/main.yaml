@@ -25,5 +25,7 @@
     - role: agoloncser.pyenv
       pyenv_python_versions:
       - version: 3.11.5
+        global: yes
   tasks:
     - include_tasks: tasks/setup-chezmoi.yaml
+    - include_tasks: tasks/install-fonts.yaml
