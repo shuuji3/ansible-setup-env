@@ -4,3 +4,4 @@ sudoers_custom_config: |
 apt_packages:
 - snapper-gui
 - gh
+- fish
