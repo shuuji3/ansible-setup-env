@@ -20,5 +20,9 @@
   connection: local
   vars_files:
     - default.config.yaml
+  roles:
+    - role: agoloncser.pyenv
+      pyenv_python_versions:
+      - version: 3.11.5
   tasks:
     - include_tasks: tasks/setup-chezmoi.yaml
