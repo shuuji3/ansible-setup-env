@@ -5,6 +5,8 @@
   become: yes
   vars_files:
     - default.config.yaml
+  roles:
+    - darkwizard242.googlechrome
   tasks:
     - include_tasks: tasks/sudoers.yaml
     - include_tasks: tasks/install-btrfs-assistant.yaml
