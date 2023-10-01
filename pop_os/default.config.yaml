@@ -8,7 +8,6 @@ apt_packages:
 - byobu
 - fzf
 - httpie
-- jq
 - htop
 - dstat
 - tree
