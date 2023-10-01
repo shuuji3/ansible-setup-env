@@ -1,0 +1,9 @@
+---
+- name: Check if startship is installed
+  command: "which starship"
+  register: starship_installed
+  failed_when: no
+  changed_when: no
+- name: Install starship
+  shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+  when: starship_installed.rc != 0
