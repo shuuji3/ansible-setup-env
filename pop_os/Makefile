@@ -1,7 +1,7 @@
 .PHONY: ansible setup
 
 setup: ansible ansible-galaxy
-	ansible-playbook main.yaml -K -vvv
+	ansible-playbook main.yaml -K -vv
 
 ansible:
 ifeq ($(shell which ansible),)
