@@ -16,3 +16,4 @@ apt_packages:
 - virtualbox-qt
 - vagrant
 - tldr
+- imagemagick
