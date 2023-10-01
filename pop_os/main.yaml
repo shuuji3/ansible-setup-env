@@ -14,6 +14,7 @@
     - include_tasks: tasks/install-btrfs-assistant.yaml
     - include_tasks: tasks/chsh-fish.yaml
     - include_tasks: tasks/setup-starship.yaml
+    - include_tasks: tasks/install-slack-app.yaml
 - name: Run user tasks
   hosts: all
   connection: local

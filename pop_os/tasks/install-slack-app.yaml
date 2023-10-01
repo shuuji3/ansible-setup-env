@@ -1,0 +1,9 @@
+---
+- name: Fetch Slack download page html
+  uri:
+    url: https://slack.com/downloads/instructions/ubuntu
+    return_content: yes
+  register: page
+- name: Install Slack deb package
+  apt:
+    deb: "{{ page.content | regex_search('https://downloads.slack-edge.com/releases/linux/[^/]+/prod/x64/slack-desktop-[^-]+-amd64.deb') }}"
