@@ -1,6 +1,6 @@
 .PHONY: ansible setup
 
-setup: ansible
+setup: ansible ansible-galaxy
 	ansible-playbook main.yaml -K -vvv
 
 ansible:
