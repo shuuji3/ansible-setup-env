@@ -29,3 +29,4 @@
   tasks:
     - include_tasks: tasks/setup-chezmoi.yaml
     - include_tasks: tasks/install-fonts.yaml
+    - include_tasks: tasks/setup-ssh.yaml

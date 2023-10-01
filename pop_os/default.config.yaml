@@ -17,3 +17,4 @@ apt_packages:
 - tldr
 - imagemagick
 - neofetch
+- ssh
