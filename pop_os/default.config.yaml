@@ -3,4 +3,4 @@ sudoers_custom_config: |
   %sudo ALL=(ALL) NOPASSWD: ALL
 apt_packages:
 - snapper-gui
-
+- gh
