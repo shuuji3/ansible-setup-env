@@ -1,8 +1,14 @@
-# setup-env
+# ansible-setup-env
 
-🧑🏻‍💻 Setup my daily macOS/Linux environment using Ansible
+🧑🏻‍💻 Setup my daily macOS/Linux environment with Ansible
 
-## How to setup
+## How to set up
+
+### On Pop!_OS
+
+```shell
+cd pop_os/ && make
+```
 
 ### On macOS
 
@@ -16,4 +22,4 @@ cd macos/ && make
 
 ### On Ubuntu
 
-*TODO*
+maybe TBW
