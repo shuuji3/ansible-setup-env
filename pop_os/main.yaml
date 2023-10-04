@@ -9,6 +9,9 @@
     - darkwizard242.googlechrome
     - baztian.jetbrains_toolbox
     - dyindude.discord
+    - role: geerlingguy.docker
+      docker_users:
+        - shuuji3
   tasks:
     - include_tasks: tasks/sudoers.yaml
     - include_tasks: tasks/install-apt-packages.yaml
