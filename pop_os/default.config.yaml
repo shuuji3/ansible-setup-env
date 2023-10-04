@@ -19,3 +19,4 @@ apt_packages:
 - neofetch
 - ssh
 - gnome-boxes
+- gnome-tweaks
