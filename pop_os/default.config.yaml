@@ -20,3 +20,5 @@ apt_packages:
 - ssh
 - gnome-boxes
 - gnome-tweaks
+- gstreamer1.0-libav
+- gstreamer1.0-plugins-bad
