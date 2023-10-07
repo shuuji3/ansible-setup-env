@@ -22,3 +22,5 @@ apt_packages:
 - gnome-tweaks
 - gstreamer1.0-libav
 - gstreamer1.0-plugins-bad
+- ibus-mozc
+- mozc-utils-gui
