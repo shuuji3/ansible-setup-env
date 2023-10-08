@@ -13,6 +13,7 @@
       docker_users:
         - shuuji3
   tasks:
+    - include_tasks: tasks/hostname.yaml
     - include_tasks: tasks/sudoers.yaml
     - include_tasks: tasks/install-apt-packages.yaml
     - include_tasks: tasks/install-btrfs-assistant.yaml
