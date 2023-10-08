@@ -15,7 +15,7 @@
   tasks:
     - include_tasks: tasks/hostname.yaml
     - include_tasks: tasks/sudoers.yaml
-    - include_tasks: tasks/install-apt-packages.yaml
+    - include_tasks: tasks/install-packages.yaml
     - include_tasks: tasks/install-btrfs-assistant.yaml
     - include_tasks: tasks/chsh-fish.yaml
     - include_tasks: tasks/setup-starship.yaml

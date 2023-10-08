@@ -1,4 +1,8 @@
 ---
+- name: Install flatpak packages
+  flatpak:
+    name: "{{ item.name | default(item) }}"
+  loop: "{{ flatpak_packages }}"
 - name: Update apt cache
   apt:
     update_cache: yes

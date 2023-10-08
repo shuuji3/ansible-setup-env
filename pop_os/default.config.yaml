@@ -1,6 +1,10 @@
 ---
 sudoers_custom_config: |
   %sudo ALL=(ALL) NOPASSWD: ALL
+flatpak_packages:
+- https://flathub.org/beta-repo/appstream/org.gimp.GIMP.flatpakref
+- org.inkscape.Inkscape
+- org.kde.krita
 apt_packages:
 - snapper-gui
 - gh
