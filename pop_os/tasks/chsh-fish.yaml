@@ -1,10 +1,10 @@
 ---
-- name: find the location of fish shell
+- name: Find the location of fish shell
   command: which fish
   register: which_fish
   ignore_errors: yes
   changed_when: no
-- name: chsh fish
+- name: Set fish shell as default shell
   user:
     name: shuuji3
     shell: '{{ which_fish.stdout }}'
