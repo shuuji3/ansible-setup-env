@@ -30,6 +30,7 @@
       pyenv_python_versions:
       - version: 3.11.5
         global: yes
+    - pddg.xkeysnail
   tasks:
     - include_tasks: tasks/setup-chezmoi.yaml
     - include_tasks: tasks/install-fonts.yaml
