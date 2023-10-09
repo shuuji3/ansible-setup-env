@@ -4,8 +4,6 @@
   register: which_fish
   ignore_errors: yes
   changed_when: no
-- debug:
-    var: "{{ansible_facts}}"
 - name: chsh fish
   user:
     name: shuuji3
