@@ -17,8 +17,6 @@ apt_packages:
 - tree
 - yt-dlp
 - emacs-gtk
-- vagrant
-- libvirt-daemon-system
 - tldr
 - imagemagick
 - neofetch

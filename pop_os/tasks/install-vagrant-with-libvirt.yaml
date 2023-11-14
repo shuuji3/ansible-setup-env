@@ -1,0 +1,12 @@
+---
+- name: Install vagrant
+  apt:
+    name: vagrant
+- name: Install libvirt systemd service
+  apt:
+    name: libvirt-daemon-system
+- name: Add user to libvirt group
+  user:
+    append: yes
+    name: shuuji3
+    groups: libvirt
