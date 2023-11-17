@@ -5,6 +5,9 @@
 - name: Install libvirt systemd service
   apt:
     name: libvirt-daemon-system
+- name: Install virt-manager application to manage VMs
+  apt:
+    name: virt-manager
 - name: Add user to libvirt group
   user:
     append: yes
