@@ -22,6 +22,7 @@
     - include_tasks: tasks/install-slack-app.yaml
     - include_tasks: tasks/install-incus.yaml
     - include_tasks: tasks/install-vagrant-with-libvirt.yaml
+    - include_tasks: tasks/install-google-cloud-sdk.yaml
 - name: Run user tasks
   hosts: all
   connection: local
