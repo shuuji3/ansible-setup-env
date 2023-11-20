@@ -5,7 +5,7 @@ setup: ansible ansible-galaxy
 
 ansible:
 ifeq ($(shell which ansible),)
-	sudo apt update && sudo apt install ansible
+	sudo apt update && sudo apt install ansible-core
 endif
 
 ansible-galaxy: requirements.yaml
