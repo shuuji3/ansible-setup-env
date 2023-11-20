@@ -25,6 +25,7 @@
     - include_tasks: tasks/install-google-cloud-sdk.yaml
     - include_tasks: tasks/install-yt-dlp.yaml
     - include_tasks: tasks/install-google-drive-ocamlfuse.yaml
+    - include_tasks: tasks/install-terraform.yaml
 - name: Run user tasks
   hosts: all
   connection: local

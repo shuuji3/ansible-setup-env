@@ -1,0 +1,13 @@
+---
+- name: Add gpg key
+  get_url:
+    url: https://apt.releases.hashicorp.com/gpg
+    dest: /etc/apt/keyrings/hashicorp.asc
+- name: Prepare apt repository
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/hashicorp.asc] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+    filename: hashicorp
+- name: Install terraform
+  apt:
+    update_cache: yes
+    name: terraform
