@@ -1,0 +1,8 @@
+---
+- name: Prepare apt repository
+  apt_repository:
+    repo: ppa:tomtomtom/yt-dlp
+- name: Install yt-dlp
+  apt:
+    update_cache: yes
+    name: yt-dlp

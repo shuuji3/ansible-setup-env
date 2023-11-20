@@ -15,7 +15,6 @@ apt_packages:
 - htop
 - dstat
 - tree
-- yt-dlp
 - emacs-gtk
 - tldr
 - imagemagick
