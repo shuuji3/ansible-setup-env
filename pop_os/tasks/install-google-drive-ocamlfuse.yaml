@@ -1,0 +1,12 @@
+- name: google-drive-ocamlfuse repo (apt)
+  apt_repository:
+    repo: ppa:alessandro-strada/ppa
+    state: present
+    update_cache: yes
+- name: install google-drive-ocamlfuse (apt)
+  apt:
+    name: "google-drive-ocamlfuse"
+    state: present
+- name: Create ~/gdrive directory
+  become: no
+  file: path=~/gdrive state=directory
