@@ -7,7 +7,10 @@
   apt_repository:
     repo: "deb [signed-by=/etc/apt/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main"
     filename: google-cloud-sdk
-- name: Install google-cloud-cli
+- name: Install google-cloud-sdk
   apt:
-    update_cache: yes
-    name: google-cloud-cli
+    name: google-cloud-sdk
+- name: Install google-cloud-sdk-config-connector
+  apt:
+    name: google-cloud-sdk-config-connector
+    install_recommends: yes
