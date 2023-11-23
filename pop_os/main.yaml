@@ -13,19 +13,19 @@
       docker_users:
         - shuuji3
   tasks:
-    - include_tasks: tasks/hostname.yaml
-    - include_tasks: tasks/sudoers.yaml
-    - include_tasks: tasks/install-packages.yaml
-    - include_tasks: tasks/install-btrfs-assistant.yaml
-    - include_tasks: tasks/chsh-fish.yaml
-    - include_tasks: tasks/setup-starship.yaml
-    - include_tasks: tasks/install-slack-app.yaml
-    - include_tasks: tasks/install-incus.yaml
-    - include_tasks: tasks/install-vagrant-with-libvirt.yaml
-    - include_tasks: tasks/install-google-cloud-sdk.yaml
-    - include_tasks: tasks/install-yt-dlp.yaml
-    - include_tasks: tasks/install-google-drive-ocamlfuse.yaml
-    - include_tasks: tasks/install-terraform-and-packer.yaml
+    - import_tasks: tasks/hostname.yaml
+    - import_tasks: tasks/sudoers.yaml
+    - import_tasks: tasks/install-packages.yaml
+    - import_tasks: tasks/install-btrfs-assistant.yaml
+    - import_tasks: tasks/chsh-fish.yaml
+    - import_tasks: tasks/setup-starship.yaml
+    - import_tasks: tasks/install-slack-app.yaml
+    - import_tasks: tasks/install-incus.yaml
+    - import_tasks: tasks/install-vagrant-with-libvirt.yaml
+    - import_tasks: tasks/install-google-cloud-sdk.yaml
+    - import_tasks: tasks/install-yt-dlp.yaml
+    - import_tasks: tasks/install-google-drive-ocamlfuse.yaml
+    - import_tasks: tasks/install-terraform-and-packer.yaml
 - name: Run user tasks
   hosts: all
   connection: local
@@ -38,6 +38,6 @@
         global: yes
     - pddg.xkeysnail
   tasks:
-    - include_tasks: tasks/setup-chezmoi.yaml
-    - include_tasks: tasks/install-fonts.yaml
-    - include_tasks: tasks/setup-ssh.yaml
+    - import_tasks: tasks/setup-chezmoi.yaml
+    - import_tasks: tasks/install-fonts.yaml
+    - import_tasks: tasks/setup-ssh.yaml
