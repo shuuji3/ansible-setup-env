@@ -11,3 +11,6 @@
   apt:
     update_cache: yes
     name: terraform
+- name: Install packer
+  apt:
+    name: packer
