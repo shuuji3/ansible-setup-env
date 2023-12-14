@@ -26,3 +26,4 @@ apt_packages:
 - gstreamer1.0-plugins-bad
 - ibus-mozc
 - mozc-utils-gui
+- hwloc
