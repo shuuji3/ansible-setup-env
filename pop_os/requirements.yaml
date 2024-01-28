@@ -1,7 +1,10 @@
 ---
-- baztian.jetbrains_toolbox
-- darkwizard242.googlechrome
-- agoloncser.pyenv
-- dyindude.discord
-- geerlingguy.docker
-- pddg.xkeysnail
+roles:
+  - baztian.jetbrains_toolbox
+  - darkwizard242.googlechrome
+  - agoloncser.pyenv
+  - dyindude.discord
+  - geerlingguy.docker
+  - pddg.xkeysnail
+collections:
+  - community.general
