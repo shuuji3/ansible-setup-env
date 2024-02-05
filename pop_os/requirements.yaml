@@ -6,5 +6,6 @@ roles:
   - dyindude.discord
   - geerlingguy.docker
   - pddg.xkeysnail
+  - Comcast.sdkman
 collections:
   - community.general

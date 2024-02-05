@@ -12,6 +12,7 @@
     - role: geerlingguy.docker
       docker_users:
         - shuuji3
+    - Comcast.sdkman
   tasks:
     - include_tasks: tasks/hostname.yaml
     - include_tasks: tasks/sudoers.yaml
