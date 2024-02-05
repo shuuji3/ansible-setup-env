@@ -1,0 +1,14 @@
+---
+- name: Find the location of flutter
+  command: which flutter
+  register: which_flutter
+  ignore_errors: yes
+  changed_when: no
+- name: Download flutter archive
+  vars:
+    version: 3.16.9
+  unarchive:
+    remote_src: yes
+    src: "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version }}-stable.tar.xz"
+    dest: /tmp/
+  when: which_flutter is not success
