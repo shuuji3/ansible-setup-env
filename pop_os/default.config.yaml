@@ -27,3 +27,4 @@ apt_packages:
 - ibus-mozc
 - mozc-utils-gui
 - hwloc
+- obs-studio
