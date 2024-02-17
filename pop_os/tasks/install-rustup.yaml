@@ -1,0 +1,9 @@
+---
+- name: Find the location of rustup
+  command: which rustup
+  register: which_rustup
+  ignore_errors: yes
+  changed_when: no
+- name: Install rustup
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  when: which_rustup is not success
