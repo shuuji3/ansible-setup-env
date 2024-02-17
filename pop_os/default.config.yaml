@@ -28,3 +28,6 @@ apt_packages:
 - mozc-utils-gui
 - hwloc
 - obs-studio
+- remmina
+- remmina-plugin-rdp
+- remmina-plugin-vnc
