@@ -13,6 +13,9 @@
       docker_users:
         - shuuji3
     - Comcast.sdkman
+    - role: artis3n.tailscale
+      vars:
+        tailscale_up_skip: true
   tasks:
     - include_tasks: tasks/hostname.yaml
     - include_tasks: tasks/sudoers.yaml

@@ -7,5 +7,6 @@ roles:
   - geerlingguy.docker
   - pddg.xkeysnail
   - Comcast.sdkman
+  - artis3n.tailscale
 collections:
   - community.general
