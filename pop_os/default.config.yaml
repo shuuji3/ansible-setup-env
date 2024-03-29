@@ -32,3 +32,4 @@ apt_packages:
 - remmina-plugin-rdp
 - remmina-plugin-vnc
 - freerdp2-x11
+- guestfs-tools
