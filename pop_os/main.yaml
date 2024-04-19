@@ -30,7 +30,8 @@
     - include_tasks: tasks/install-yt-dlp.yaml
     - include_tasks: tasks/install-google-drive-ocamlfuse.yaml
     - include_tasks: tasks/install-terraform-and-packer.yaml
-    - include_tasks: tasks/install-rustup.yaml
+# TODO: not idempotent
+#    - include_tasks: tasks/install-rustup.yaml
 - name: Run user tasks
   hosts: all
   connection: local
