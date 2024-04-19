@@ -5,6 +5,7 @@ flatpak_packages:
 - https://flathub.org/beta-repo/appstream/org.gimp.GIMP.flatpakref
 - org.inkscape.Inkscape
 - org.kde.krita
+- md.obsidian.Obsidian
 apt_packages:
 - snapper-gui
 - gh
