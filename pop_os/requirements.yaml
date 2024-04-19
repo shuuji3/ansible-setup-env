@@ -10,3 +10,4 @@ roles:
   - artis3n.tailscale
 collections:
   - community.general
+  - ansible.posix
