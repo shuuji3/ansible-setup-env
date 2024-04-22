@@ -8,6 +8,7 @@ roles:
   - pddg.xkeysnail
   - Comcast.sdkman
   - artis3n.tailscale
+  - buluma.virtualbox
 collections:
   - community.general
   - ansible.posix
