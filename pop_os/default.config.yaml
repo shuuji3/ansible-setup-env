@@ -21,7 +21,6 @@ apt_packages:
 - imagemagick
 - neofetch
 - ssh
-- gnome-boxes
 - gnome-tweaks
 - gstreamer1.0-libav
 - gstreamer1.0-plugins-bad
@@ -34,3 +33,5 @@ apt_packages:
 - remmina-plugin-vnc
 - freerdp2-x11
 - guestfs-tools
+apt_packages_remove:
+- totem
