@@ -16,3 +16,4 @@
   apt:
     name: "{{ item.name | default(item) }}"
     state: absent
+    autoremove: yes
