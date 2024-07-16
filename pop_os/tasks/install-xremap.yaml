@@ -1,0 +1,14 @@
+---
+- name: Get latest release of xremap on GitHub
+  community.general.github_release:
+    user: xremap
+    repo: xremap
+    action: latest_release
+  register: github_release
+- debug:
+    var: tag
+- name: Install xremap
+  unarchive:
+    remote_src: yes
+    src: "https://github.com/xremap/xremap/releases/download/{{ github_release.tag }}/xremap-linux-x86_64-x11.zip"
+    dest: /usr/local/bin/

@@ -8,7 +8,7 @@ debug: ansible ansible-galaxy
 
 ansible:
 ifeq ($(shell which ansible),)
-	pip install ansible-core resolvelib
+	pip install ansible-core resolvelib github3
 endif
 
 ansible-galaxy: requirements.yaml
