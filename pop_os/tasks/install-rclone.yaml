@@ -1,0 +1,9 @@
+---
+- name: Find the location of rclone
+  command: which rclone
+  register: which_rclone
+  ignore_errors: yes
+  changed_when: no
+- name: Install rclone
+  shell: curl https://rclone.org/install.sh | bash
+  when: which_rclone is not success
