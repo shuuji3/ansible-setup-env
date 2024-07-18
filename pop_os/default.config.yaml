@@ -33,5 +33,6 @@ apt_packages:
 - remmina-plugin-vnc
 - freerdp2-x11
 - guestfs-tools
+- direnv
 apt_packages_remove:
 - totem
