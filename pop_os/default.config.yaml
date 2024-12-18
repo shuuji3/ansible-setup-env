@@ -34,5 +34,7 @@ apt_packages:
 - freerdp2-x11
 - guestfs-tools
 - direnv
+- borgbackup
+- vorta
 apt_packages_remove:
 - totem
