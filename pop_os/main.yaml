@@ -6,7 +6,7 @@
   vars_files:
     - default.config.yaml
   roles:
-    - darkwizard242.googlechrome
+#    - darkwizard242.googlechrome
     - baztian.jetbrains_toolbox
     - dyindude.discord
     - role: geerlingguy.docker

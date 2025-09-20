@@ -4,5 +4,15 @@
   become: yes
   vars_files:
     - default.config.yaml
+  roles:
+#    - role: buluma.virtualbox
+#      virtualbox_version: '7.0'
   tasks:
-    - import_tasks: tasks/install-terraform.yaml
+    - include_tasks: tasks/install-xremap.yaml
+    - include_tasks: tasks/install-rclone.yaml
+- hosts: all
+  connection: local
+  vars_files:
+    - default.config.yaml
+  roles: []
+  tasks:
