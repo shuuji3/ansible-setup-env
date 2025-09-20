@@ -1,0 +1,16 @@
+init: prepare
+    ansible-playbook init.yaml -vv
+
+infra: prepare
+    ansible-playbook infra.yaml -vv
+
+app: prepare
+    ansible-playbook app.yaml -vv
+
+prepare: ansible-galaxy lint
+
+lint:
+    ansible-lint *.yaml --fix
+
+ansible-galaxy:
+    ansible-galaxy install -r requirements.yaml
