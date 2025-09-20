@@ -1,0 +1,13 @@
+---
+- name: Initial basic setup
+  hosts: all
+  become: true
+  tasks:
+    - name: Allow nopasswd sudo
+      ansible.builtin.copy:
+        content: |
+          {{ ansible_user }} ALL=(ALL) NOPASSWD: ALL
+        dest: "/etc/sudoers.d/{{ ansible_user }}"
+        owner: root
+        group: root
+        mode: "0440"
