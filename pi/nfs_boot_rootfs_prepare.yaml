@@ -1,0 +1,114 @@
+---
+- name: Prepare Raspberry Pi OS Lite rootfs for NFS boot
+  hosts: nfs_servers
+  become: yes
+  vars:
+    raspios_image_url: "https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz"
+    raspios_image_archive_name: "{{ raspios_image_url | basename }}"
+    raspios_image_name: "{{ raspios_image_archive_name | splitext | first }}"
+    temp_dir: "/tmp/raspios_nfs_boot_setup"
+    nfs_server_ip: "{{ hostvars[inventory_hostname].ansible_host | default(inventory_hostname) }}"
+
+  tasks:
+  - name: Ensure required packages are installed
+    ansible.builtin.apt:
+      name:
+      - xz-utils
+      - kpartx
+      state: present
+      update_cache: yes
+
+  - name: Create temporary working directory
+    ansible.builtin.file:
+      path: "{{ temp_dir }}"
+      state: directory
+      mode: '0755'
+
+  - name: Download Raspberry Pi OS Lite image
+    ansible.builtin.get_url:
+      url: "{{ raspios_image_url }}"
+      dest: "{{ temp_dir }}/{{ raspios_image_archive_name }}"
+      mode: '0644'
+    register: download_status
+
+  - name: Check if extracted image already exists
+    ansible.builtin.stat:
+      path: "{{ temp_dir }}/{{ raspios_image_name }}"
+    register: extracted_image_stat
+
+  - name: Extract the image
+    ansible.builtin.command: "xz -d -k {{ temp_dir }}/{{ raspios_image_archive_name }}"
+    args:
+      creates: "{{ temp_dir }}/{{ raspios_image_name }}"
+    when: download_status is changed or not extracted_image_stat.stat.exists
+    changed_when: true
+
+  - name: Map partitions from the image using kpartx
+    ansible.builtin.command: "kpartx -av {{ temp_dir }}/{{ raspios_image_name }}"
+    register: kpartx_output
+    changed_when: true
+    failed_when: "'add map loop' not in kpartx_output.stdout and 'device already mapped' not in kpartx_output.stdout"
+
+  - name: Get loop device name from kpartx output
+    ansible.builtin.set_fact:
+      loop_device: "{{ kpartx_output.stdout | regex_search('add map (loop[0-9]+)p[12]', '\\1') | first }}"
+    when: loop_device is not defined or loop_device == ''
+
+  - name: Create temporary mount points for image partitions
+    ansible.builtin.file:
+      path: "{{ temp_dir }}/{{ item }}"
+      state: directory
+      mode: '0755'
+    loop:
+    - "boot_mnt"
+    - "rootfs_mnt"
+
+  - name: Mount boot partition from image
+    ansible.builtin.mount:
+      src: "/dev/mapper/{{ loop_device }}p1"
+      path: "{{ temp_dir }}/boot_mnt"
+      fstype: vfat
+      state: mounted
+    when: loop_device is defined and loop_device != ''
+
+  - name: Mount rootfs partition from image
+    ansible.builtin.mount:
+      src: "/dev/mapper/{{ loop_device }}p2"
+      path: "{{ temp_dir }}/rootfs_mnt"
+      fstype: ext4
+      state: mounted
+    when: loop_device is defined and loop_device != ''
+
+  - name: Prepare NFS rootfs for each client from 'nfs_clients' group
+    ansible.builtin.include_tasks: tasks/nfs_client_setup.yaml
+    loop: "{{ groups['nfs_clients'] }}"
+    loop_control:
+      loop_var: client_hostname
+    vars:
+      client_nfs_rootfs_path: "/srv/nfs/{{ hostvars[client_hostname].nfs_export_name }}"
+      client_short_name: "{{ client_hostname | splitext | first }}"
+
+  - name: Unmount rootfs partition from image
+    ansible.builtin.mount:
+      path: "{{ temp_dir }}/rootfs_mnt"
+      state: unmounted
+    when: loop_device is defined and loop_device != '' and ansible_mounts | selectattr('mount', 'equalto', temp_dir + '/rootfs_mnt') | list | length > 0
+    ignore_errors: yes
+
+  - name: Unmount boot partition from image
+    ansible.builtin.mount:
+      path: "{{ temp_dir }}/boot_mnt"
+      state: unmounted
+    when: loop_device is defined and loop_device != '' and ansible_mounts | selectattr('mount', 'equalto', temp_dir + '/boot_mnt') | list | length > 0
+    ignore_errors: yes
+
+  - name: Detach loop devices mapped by kpartx
+    ansible.builtin.command: "kpartx -d {{ temp_dir }}/{{ raspios_image_name }}"
+    changed_when: true
+    when: loop_device is defined and loop_device != ''
+    ignore_errors: yes
+
+  # - name: Clean up temporary working directory "{{ temp_dir }}"
+  #   ansible.builtin.file:
+  #     path: "{{ temp_dir }}"
+  #     state: absent
