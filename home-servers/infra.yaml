@@ -11,3 +11,34 @@
     - name: setup docker
       role: geerlingguy.docker
       docker_users: ["{{ ansible_user }}"]
+
+  tasks:
+    - name: Install pip for ansible.builtin.pip
+      ansible.builtin.apt:
+        name: python3-pip
+        state: present
+    - name: Install Docker SDK for Python
+      ansible.builtin.pip:
+        name: docker
+        state: present
+        break_system_packages: true
+---
+- name: Initialize docker swarm manager
+  hosts: main
+  become: true
+  tasks:
+    - name: Initialize swarm cluster and save join token
+      community.docker.docker_swarm:
+        state: present
+        advertise_addr: "{{ hostvars[groups['main'][0]].ansible_default_ipv4.address }}"
+      register: swarm_init_result
+---
+- name: Join worker nodes to swarm
+  hosts: pi
+  become: true
+  tasks:
+    - name: Join worker node to swarm
+      community.docker.docker_swarm:
+        state: join
+        join_token: "{{ hostvars[groups['main'][0]].swarm_init_result.swarm_facts.JoinTokens.Worker }}"
+        remote_addrs: ["{{ hostvars[groups['main'][0]].ansible_default_ipv4.address }}"]
