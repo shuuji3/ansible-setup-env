@@ -1,0 +1,13 @@
+---
+- name: Setup infra
+  hosts: all
+  become: true
+  roles:
+    - role: artis3n.tailscale.machine
+      tailscale_up_skip: true
+    - role: papanito.cloudflared
+      cf_install_only: true
+      cf_tunnels: {}
+    - name: setup docker
+      role: geerlingguy.docker
+      docker_users: ["{{ ansible_user }}"]

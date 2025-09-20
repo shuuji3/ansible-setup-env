@@ -1,0 +1,6 @@
+---
+roles:
+  - name: geerlingguy.docker
+  - name: papanito.cloudflared
+collections:
+  - name: artis3n.tailscale
