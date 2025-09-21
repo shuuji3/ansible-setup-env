@@ -1,6 +1,7 @@
 ---
 roles:
   - name: geerlingguy.docker
+  - name: geerlingguy.pip
   - name: papanito.cloudflared
 collections:
   - name: artis3n.tailscale
