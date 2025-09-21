@@ -1,0 +1,17 @@
+---
+- name: Debug playbook
+  hosts: all
+  become: true
+  vars:
+    portainer_container_name: portainer
+  tasks:
+    - name: Get Portainer container info
+      community.docker.docker_container_info:
+        name: "{{ portainer_container_name }}"
+      register: portainer_check_result
+      ignore_errors: true
+
+    - name: Display current running state (if deployed)
+      ansible.builtin.debug:
+        msg: "Portainer container '{{ portainer_container_name }}' is running: {{ portainer_check_result.container.State.Running }}"
+      when: portainer_is_deployed

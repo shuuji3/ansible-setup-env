@@ -1,3 +1,6 @@
+debug: prepare
+    ansible-playbook debug.yaml -vv
+
 init: prepare
     ansible-playbook init.yaml -vv
 
