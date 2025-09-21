@@ -32,6 +32,20 @@
         state: present
         advertise_addr: "{{ hostvars[groups['main'][0]].ansible_default_ipv4.address }}"
       register: swarm_init_result
+    - name: Gather facts about docker swarm cluster
+      community.docker.docker_node_info:
+      register: swarm_nodes_info
+    - name: Set ansible group name to swarm node labels
+      community.docker.docker_node:
+        hostname: "{{ item.Description.Hostname }}"
+        labels:
+          type: "{{ (hostvars[item.Description.Hostname].group_names | difference(['all', 'ungrouped']) | sort).0 | default(omit) }}"
+      loop: "{{ swarm_nodes_info.nodes }}"
+      loop_control:
+        label: "node hostname: {{ item.Description.Hostname }}"
+      when:
+        - item.Description.Hostname in hostvars
+        - (hostvars[item.Description.Hostname].group_names | difference(['all', 'ungrouped']) | length) > 0
 
 - name: Join worker nodes to swarm
   hosts: pi
