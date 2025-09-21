@@ -22,7 +22,7 @@
         name: docker
         state: present
         break_system_packages: true
----
+
 - name: Initialize docker swarm manager
   hosts: main
   become: true
@@ -32,7 +32,7 @@
         state: present
         advertise_addr: "{{ hostvars[groups['main'][0]].ansible_default_ipv4.address }}"
       register: swarm_init_result
----
+
 - name: Join worker nodes to swarm
   hosts: pi
   become: true
