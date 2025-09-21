@@ -29,6 +29,7 @@
         state: present
         advertise_addr: "{{ hostvars[groups['main'][0]].ansible_default_ipv4.address }}"
       register: swarm_init_result
+
     - name: Gather facts about docker swarm cluster
       community.docker.docker_node_info:
       register: swarm_nodes_info
@@ -58,3 +59,42 @@
       when:
         - item.Description.Hostname in hostvars
         - (hostvars[item.Description.Hostname].group_names | difference(['all', 'ungrouped']) | length) > 0
+
+- name: Set up NFS Server
+  hosts: main
+  become: true
+  tasks:
+    - name: Install nfs-kernel-server
+      ansible.builtin.apt:
+        name: nfs-kernel-server
+        state: present
+        update_cache: true
+
+    - name: Create shared directory
+      ansible.builtin.file:
+        path: /srv/nfs/docker-volumes
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0777"
+
+    - name: Configure /etc/exports
+      ansible.builtin.lineinfile:
+        path: /etc/exports
+        line: "/srv/nfs/docker-volumes {{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.prefix }}(rw,sync,no_subtree_check,no_root_squash)"
+        state: present
+
+    - name: Export directories and restart nfs service
+      ansible.builtin.service:
+        name: nfs-kernel-server
+        state: restarted
+
+- name: Set up NFS Clients
+  hosts: pi
+  become: true
+  tasks:
+    - name: Install nfs-common
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+        update_cache: true
