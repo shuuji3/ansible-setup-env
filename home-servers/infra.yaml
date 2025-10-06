@@ -24,6 +24,11 @@
   hosts: main
   become: true
   tasks:
+    - name: Ensure uninstall of docker snap
+      community.general.snap:
+        name: docker
+        state: absent
+
     - name: Initialize swarm cluster and save join token
       community.docker.docker_swarm:
         state: present
