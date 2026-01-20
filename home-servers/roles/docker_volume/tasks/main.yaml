@@ -1,0 +1,35 @@
+---
+- name: Assign NFS server IP from a different host's hostvars
+  ansible.builtin.set_fact:
+    docker_volume_nfs_server_host: "{{ hostvars[groups['main'][0]].ansible_hostname }}"
+
+- name: Debug
+  ansible.builtin.debug:
+    var: docker_volume_nfs_server_host
+
+- name: Ensure host directory for the volume bind mount exists
+  ansible.builtin.file:
+    path: "/opt/docker/volumes/{{ docker_volume_name }}"
+    state: directory
+    mode: "0755"
+
+- name: "Create local Docker volume under /opt for {{ docker_volume_name }}"
+  community.docker.docker_volume:
+    name: "{{ docker_volume_name }}"
+    state: present
+    #    state: absent
+    driver_options:
+      type: none
+      o: bind
+      device: "/opt/docker/volumes/{{ docker_volume_name }}"
+  when: docker_volume_type == "local"
+
+- name: "Create NFS Docker volume for {{ docker_volume_name }}"
+  community.docker.docker_volume:
+    name: "{{ docker_volume_name }}"
+    driver: local
+    driver_options:
+      type: nfs
+      o: "addr={{ docker_volume_nfs_server_host }},nfsvers=4.2,soft,rw"
+      device: ":/srv/nfs/docker-volumes/{{ docker_volume_name }}"
+  when: docker_volume_type == "nfs"
